@@ -49,8 +49,6 @@ Route::group(['middleware' => 'akses-user:admin'], function () {
     Route::post('/strukturDelete/{x}', [BackendController::class, 'strukturDelete']);
 });
 
-
-
 Route::get('/', [UtamaController::class, 'dashboard']);
 Route::get('/profile', [UtamaController::class, 'profil']);
 Route::get('/login', [UtamaController::class, 'login'])->name('login')->middleware('guest');
@@ -149,6 +147,13 @@ Route::prefix('admin')->group(function () {
 
         //custom route for enrolle destroy
         Route::delete('/exam_sessions/{exam_session}/enrolle/{exam_group}/destroy', [\App\Http\Controllers\Admin\ExamSessionController::class, 'destroyEnrolle'])->name('admin.exam_sessions.destroyEnrolle');
+
+        //route index grade
+        Route::get('/grade', [\App\Http\Controllers\Admin\GradeController::class, 'index'])->name('admin.grade.index');
+
+        //route index reports grade
+        Route::get('/grade/filter', [\App\Http\Controllers\Admin\GradeController::class, 'filter'])->name('admin.grade.filter');
+
     });
 });
 
