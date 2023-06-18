@@ -187,4 +187,10 @@ Route::group(['middleware' => ['auth']], function () {
 
     //route exam result
     Route::get('/exam-result/{exam_group_id}', [App\Http\Controllers\User\ExamController::class, 'resultExam'])->name('user.exams.resultExam');
+
+    Route::get('/grade/print-pdf/{id}', [App\Http\Controllers\user\ExamController::class, 'generatePDF'])->name('student.exam.print');
+});
+
+Route::get('/coba', function () {
+    return view('pdf.grade');
 });

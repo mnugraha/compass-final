@@ -366,4 +366,18 @@ class ExamController extends Controller
         ]);
     }
 
+    /**
+     * generatePDF
+     *
+     * @param  mixed $id
+     * @return void
+     */
+    public function generatePDF($id)
+    {
+        // get administration
+        $data = Grade::findOrFail($id);
+
+        return view('pdf.grade', ['data' => $data]);
+    }
+
 }
