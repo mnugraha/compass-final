@@ -154,6 +154,8 @@ Route::prefix('admin')->group(function () {
         //route index reports grade
         Route::get('/grade/filter', [\App\Http\Controllers\Admin\GradeController::class, 'filter'])->name('admin.grade.filter');
 
+        Route::get('/grade/export', [\App\Http\Controllers\Admin\GradeController::class, 'export'])->name('admin.grade.export');
+
     });
 });
 

@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\GradesExport;
 use App\Http\Controllers\Controller;
 use App\Models\Exam;
 use App\Models\Grade;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class GradeController extends Controller
 {
@@ -77,5 +80,26 @@ class GradeController extends Controller
             return back()->withErrors(['message' => 'Data tidak ditemukan.']);
         }
 
+    }
+
+    /**
+     * export
+     *
+     * @param  mixed $request
+     * @return void
+     */
+    public function export(Request $request)
+    {
+        //get exam
+        $exam = Exam::with('peran', 'level')
+            ->where('id', $request->exam_id)
+            ->first();
+
+        //get grades / nilai
+        $grades = Grade::with('user', 'exam.peran', 'exam.level', 'exam_session')
+            ->where('exam_id', $exam->id)
+            ->get();
+
+        return Excel::download(new GradesExport($grades), 'grade : ' . $exam->title . ' — ' . Carbon::now() . '.xlsx');
     }
 }
