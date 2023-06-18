@@ -49,8 +49,6 @@ Route::group(['middleware' => 'akses-user:admin'], function () {
     Route::post('/strukturDelete/{x}', [BackendController::class, 'strukturDelete']);
 });
 
-
-
 Route::get('/', [UtamaController::class, 'dashboard']);
 Route::get('/profile', [UtamaController::class, 'profil']);
 Route::get('/login', [UtamaController::class, 'login'])->name('login')->middleware('guest');
@@ -149,6 +147,15 @@ Route::prefix('admin')->group(function () {
 
         //custom route for enrolle destroy
         Route::delete('/exam_sessions/{exam_session}/enrolle/{exam_group}/destroy', [\App\Http\Controllers\Admin\ExamSessionController::class, 'destroyEnrolle'])->name('admin.exam_sessions.destroyEnrolle');
+
+        //route index grade
+        Route::get('/grade', [\App\Http\Controllers\Admin\GradeController::class, 'index'])->name('admin.grade.index');
+
+        //route index reports grade
+        Route::get('/grade/filter', [\App\Http\Controllers\Admin\GradeController::class, 'filter'])->name('admin.grade.filter');
+
+        Route::get('/grade/export', [\App\Http\Controllers\Admin\GradeController::class, 'export'])->name('admin.grade.export');
+
     });
 });
 
@@ -180,4 +187,10 @@ Route::group(['middleware' => ['auth']], function () {
 
     //route exam result
     Route::get('/exam-result/{exam_group_id}', [App\Http\Controllers\User\ExamController::class, 'resultExam'])->name('user.exams.resultExam');
+
+    Route::get('/grade/print-pdf/{id}', [App\Http\Controllers\user\ExamController::class, 'generatePDF'])->name('student.exam.print');
+});
+
+Route::get('/coba', function () {
+    return view('pdf.grade');
 });

@@ -142,7 +142,7 @@
                                             <!-- soal text -->
                                             <div
                                                 v-if="question?.question"
-                                                class="fw-bold"
+                                                class="white-space fw-bold"
                                                 v-html="question?.question"
                                             ></div>
                                             <!-- soal audio -->
@@ -159,6 +159,7 @@
                                             <hr />
                                             <ol type="A">
                                                 <li
+                                                    class="white-space"
                                                     v-html="question?.option_1"
                                                     :class="{
                                                         'text-success fw-bold':
@@ -167,6 +168,7 @@
                                                     }"
                                                 ></li>
                                                 <li
+                                                    class="white-space"
                                                     v-html="question?.option_2"
                                                     :class="{
                                                         'text-success fw-bold':
@@ -175,6 +177,7 @@
                                                     }"
                                                 ></li>
                                                 <li
+                                                    class="white-space"
                                                     v-html="question?.option_3"
                                                     :class="{
                                                         'text-success fw-bold':
@@ -183,6 +186,7 @@
                                                     }"
                                                 ></li>
                                                 <li
+                                                    class="white-space"
                                                     v-html="question?.option_4"
                                                     :class="{
                                                         'text-success fw-bold':
@@ -191,6 +195,7 @@
                                                     }"
                                                 ></li>
                                                 <li
+                                                    class="white-space"
                                                     v-html="question?.option_5"
                                                     :class="{
                                                         'text-success fw-bold':

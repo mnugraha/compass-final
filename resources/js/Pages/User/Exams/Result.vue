@@ -232,6 +232,19 @@
                                     </td>
                                     <td>{{ grade?.grade }}</td>
                                 </tr>
+                                <tr>
+                                    <td>Download</td>
+                                    <td>
+                                        <!-- Download button -->
+                                        <a
+                                            @click="generatePDF(grade?.id)"
+                                            class="btn btn-info mb-0"
+                                        >
+                                            <i class="fa fa-file-pdf me-2"></i>
+                                            Download PDF
+                                        </a>
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -267,6 +280,13 @@ export default {
         exam_group: Object,
         grade: Object,
         all_questions: Object
+    },
+
+    methods: {
+        // ubah status
+        generatePDF (id) {
+            window.open(`/grade/print-pdf/${id}`, '_blank')
+        }
     }
 }
 </script>
