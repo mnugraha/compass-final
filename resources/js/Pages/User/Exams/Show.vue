@@ -3,6 +3,19 @@
         <title>Ujian Dengan Nomor Soal : {{ page }}</title>
     </Head>
     <div class="row mb-5">
+        <!-- kembali -->
+        <div
+            class="col-12 d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center"
+        >
+            <Link
+                href="/exam"
+                class="btn btn-md btn-primary border-0 shadow mb-3"
+                type="button"
+                ><i class="fa fa-long-arrow-alt-left me-2"></i>
+                Kembali
+            </Link>
+        </div>
+
         <!-- deskripsi -->
         <div class="col-md-12 mb-2">
             <div class="card border-0 shadow">

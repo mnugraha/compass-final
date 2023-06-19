@@ -53,6 +53,64 @@
                     class="dropdown-divider mt-2 mb-2 border-gray-700"
                 ></li>
 
+                <li class="nav-item">
+                    <a href="/" class="nav-link d-flex justify-content-between">
+                        <span>
+                            <span class="sidebar-icon">
+                                <svg
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="1.5"
+                                    viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    aria-hidden="true"
+                                    class="bi bi-stopwatch icon icon-xs me-2"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                                    ></path>
+                                </svg>
+                            </span>
+                            <span class="sidebar-text">Dashboards</span>
+                        </span>
+                    </a>
+                </li>
+
+                <li
+                    class="nav-item"
+                    :class="{
+                        active: $page.url.startsWith('/Dlevel')
+                    }"
+                >
+                    <a
+                        href="/Dlevel"
+                        class="nav-link d-flex justify-content-between"
+                    >
+                        <span>
+                            <span class="sidebar-icon">
+                                <svg
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="1.5"
+                                    viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    aria-hidden="true"
+                                    class="bi bi-stopwatch icon icon-xs me-2"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
+                                    ></path>
+                                </svg>
+                            </span>
+                            <span class="sidebar-text">Admin</span>
+                        </span>
+                    </a>
+                </li>
+
                 <li
                     class="nav-item"
                     :class="{ active: $page.url.startsWith('/admin/exams') }"
