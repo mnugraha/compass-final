@@ -186,25 +186,25 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/exam', App\Http\Controllers\User\DashboardController::class)->name('user.exam');
 
     //route exam confirmation
-    Route::get('/exam-confirmation/{id}', [App\Http\Controllers\User\ExamController::class, 'confirmation'])->name('user.exams.confirmation');
+    Route::get('/exam-confirmation/{id}', [ExamController::class, 'confirmation'])->name('user.exams.confirmation');
 
     //route exam start
-    Route::get('/exam-start/{id}', [App\Http\Controllers\User\ExamController::class, 'startExam'])->name('user.exams.startExam');
+    Route::get('/exam-start/{id}', [ExamController::class, 'startExam'])->name('user.exams.startExam');
 
     //route exam show
-    Route::get('/exam/{id}/{page}', [App\Http\Controllers\User\ExamController::class, 'show'])->name('user.exams.show');
+    Route::get('/exam/{id}/{page}', [ExamController::class, 'show'])->name('user.exams.show');
 
     //route exam update duration
-    Route::put('/exam-duration/update/{grade_id}', [App\Http\Controllers\User\ExamController::class, 'updateDuration'])->name('user.exams.update_duration');
+    Route::put('/exam-duration/update/{grade_id}', [ExamController::class, 'updateDuration'])->name('user.exams.update_duration');
 
     //route answer question
-    Route::post('/exam-answer', [App\Http\Controllers\User\ExamController::class, 'answerQuestion'])->name('user.exams.answerQuestion');
+    Route::post('/exam-answer', [ExamController::class, 'answerQuestion'])->name('user.exams.answerQuestion');
 
     //route exam end
-    Route::post('/exam-end', [App\Http\Controllers\User\ExamController::class, 'endExam'])->name('user.exams.endExam');
+    Route::post('/exam-end', [ExamController::class, 'endExam'])->name('user.exams.endExam');
 
     //route exam result
-    Route::get('/exam-result/{exam_group_id}', [App\Http\Controllers\User\ExamController::class, 'resultExam'])->name('user.exams.resultExam');
+    Route::get('/exam-result/{exam_group_id}', [ExamController::class, 'resultExam'])->name('user.exams.resultExam');
 
     Route::get('/grade/print-pdf/{id}', [ExamController::class, 'generatePDF'])->name('student.exam.print');
 });
