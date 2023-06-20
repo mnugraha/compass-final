@@ -23068,7 +23068,7 @@ body .row > div[class^='col-'] {
   background: url(/logo_indorama.png) left top no-repeat grey;
 }
 .app-navigation.app-navigation-style-default nav > ul > li.openable > a:after {
-  color: #232839;
+  color: #ddd;
 }
 .app-navigation.app-navigation-style-default nav > ul > li.openable.open > a {
   background: #272c40;

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BackendController;
+use App\Http\Controllers\BackendController_en;
 use App\Http\Controllers\EnglishController;
 use App\Http\Controllers\UtamaController;
 use Illuminate\Support\Facades\Route;
@@ -47,6 +48,23 @@ Route::group(['middleware' => 'akses-user:admin'], function () {
     Route::post('/strukturSimpan', [BackendController::class, 'strukturSimpan']);
     Route::post('/strukturUpdate/{x}', [BackendController::class, 'strukturUpdate']);
     Route::post('/strukturDelete/{x}', [BackendController::class, 'strukturDelete']);
+
+    Route::get('/Dkompetensi_en', [BackendController_en::class, 'kompetensi_en']);
+    Route::post('/kompetensiSimpan_en', [BackendController_en::class, 'kompetensiSimpan_en']);
+    Route::post('/kompetensiUpdate_en/{x}', [BackendController_en::class, 'kompetensiUpdate_en']);
+    Route::post('/kompetensiDelete_en/{x}', [BackendController_en::class, 'kompetensiDelete_en']);
+    Route::get('/Dvalue_en', [BackendController_en::class, 'value_en']);
+    Route::post('/valueSimpan_en', [BackendController_en::class, 'valueSimpan_en']);
+    Route::post('/valueUpdate_en/{x}', [BackendController_en::class, 'valueUpdate_en']);
+    Route::post('/valueDelete_en/{x}', [BackendController_en::class, 'valueDelete_en']);
+    Route::get('/Dperan_en', [BackendController_en::class, 'peran_en']);
+    Route::post('/peranSimpan_en', [BackendController_en::class, 'peranSimpan_en']);
+    Route::post('/peranUpdate_en/{x}', [BackendController_en::class, 'peranUpdate_en']);
+    Route::post('/peranDelete_en/{x}', [BackendController_en::class, 'peranDelete_en']);
+    Route::get('/Dstruktur_en', [BackendController_en::class, 'struktur_en']);
+    Route::post('/strukturSimpan_en', [BackendController_en::class, 'strukturSimpan_en']);
+    Route::post('/strukturUpdate_en/{x}', [BackendController_en::class, 'strukturUpdate_en']);
+    Route::post('/strukturDelete_en/{x}', [BackendController_en::class, 'strukturDelete_en']);
 });
 
 Route::get('/', [UtamaController::class, 'dashboard']);
@@ -155,7 +173,6 @@ Route::prefix('admin')->group(function () {
         Route::get('/grade/filter', [\App\Http\Controllers\Admin\GradeController::class, 'filter'])->name('admin.grade.filter');
 
         Route::get('/grade/export', [\App\Http\Controllers\Admin\GradeController::class, 'export'])->name('admin.grade.export');
-
     });
 });
 

@@ -39,20 +39,36 @@
                             <a href="/user"><span class="fa fa-user" style="color: white"></span> User</a>
                         </li>
                         <li>
-                            <a href="/Dkompetensi"><span class="fa fa-bar-chart-o" style="color: white"></span>
+                            <a href=""><span class="fa fa-bar-chart-o" style="color: white"></span>
                                 Kompetensi</a>
+                            <ul>
+                                <li><a href="/Dkompetensi"><span class="nav-icon-hexa">Id</span> Indonesia</a></li>
+                                <li><a href="/Dkompetensi_en"><span class="nav-icon-hexa">En</span> English</a> </li>
+                            </ul>
                         </li>
                         <li>
                             <a href="/Dlevel"><span class="fa fa-bank" style="color: white"></span> Level</a>
                         </li>
                         <li>
-                            <a href="/Dvalue"><span class="fa fa-archive" style="color: white"></span> Value</a>
+                            <a href=""><span class="fa fa-archive" style="color: white"></span> Value</a>
+                            <ul>
+                                <li><a href="/Dvalue"><span class="nav-icon-hexa">Id</span> Indonesia</a></li>
+                                <li><a href="/Dvalue_en"><span class="nav-icon-hexa">En</span> English</a> </li>
+                            </ul>
                         </li>
                         <li>
-                            <a href="/Dperan"><span class="fa fa-male" style="color: white"></span> Function</a>
+                            <a href=""><span class="fa fa-male" style="color: white"></span> Function</a>
+                            <ul>
+                                <li><a href="/Dperan"><span class="nav-icon-hexa">Id</span> Indonesia</a></li>
+                                <li><a href="/Dperan_en"><span class="nav-icon-hexa">En</span> English</a> </li>
+                            </ul>
                         </li>
                         <li>
-                            <a href="/Dstruktur"><span class="fa fa-sitemap" style="color: white"></span> Struktur</a>
+                            <a href=""><span class="fa fa-sitemap" style="color: white"></span> Struktur</a>
+                            <ul>
+                                <li><a href="/Dstruktur"><span class="nav-icon-hexa">Id</span> Indonesia</a></li>
+                                <li><a href="/Dstruktur_en"><span class="nav-icon-hexa">En</span> English</a> </li>
+                            </ul>
                         </li>
                         <li>
                             <a href="/admin/exams"><span class="fa fa-file-text" style="color: white"></span>
