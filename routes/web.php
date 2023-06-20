@@ -4,6 +4,7 @@ use App\Http\Controllers\BackendController;
 use App\Http\Controllers\BackendController_en;
 use App\Http\Controllers\EnglishController;
 use App\Http\Controllers\UtamaController;
+use App\Http\Controllers\User\ExamController;
 use Illuminate\Support\Facades\Route;
 
 /*
