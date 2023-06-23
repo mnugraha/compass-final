@@ -375,7 +375,7 @@ class ExamController extends Controller
     {
         // get administration
         $data = Grade::findOrFail($id);
-        $pdf = PDF::loadview('pdf.grade', ['data' => $data])->setPaper('a4', 'landscape');
+        $pdf = \PDF::loadView('pdf.grade', ['data' => $data])->setPaper('a4', 'landscape');
         return $pdf->stream('Assessment-result');
         //return view('pdf.grade', ['data' => $data]);
     }
