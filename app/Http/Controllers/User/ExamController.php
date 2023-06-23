@@ -8,7 +8,10 @@ use App\Models\ExamGroup;
 use App\Models\Grade;
 use App\Models\Question;
 use Carbon\Carbon;
+use App\Models\Level;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ExamController extends Controller
 {
@@ -68,12 +71,10 @@ class ExamController extends Controller
 
             //get questions / soal ujian
             $questions = Question::where('exam_id', $exam_group->exam->id)->inRandomOrder()->get();
-
         } else {
 
             //get questions / soal ujian
             $questions = Question::where('exam_id', $exam_group->exam->id)->get();
-
         }
 
         //define pilihan jawaban default
@@ -113,7 +114,6 @@ class ExamController extends Controller
                 //update urutan question / soal
                 $answer->question_order = $question_order;
                 $answer->update();
-
             } else {
 
                 //buat jawaban default baru
@@ -127,10 +127,8 @@ class ExamController extends Controller
                     'answer' => 0,
                     'is_correct' => 'N',
                 ]);
-
             }
             $question_order++;
-
         }
 
         //redirect ke ujian halaman 1
@@ -232,7 +230,6 @@ class ExamController extends Controller
                 'success' => true,
                 'message' => 'Duration updated successfully.',
             ]);
-
         } catch (\Throwable $th) {
             //throw $th;
         }
@@ -379,5 +376,4 @@ class ExamController extends Controller
 
         return view('pdf.grade', ['data' => $data]);
     }
-
 }
