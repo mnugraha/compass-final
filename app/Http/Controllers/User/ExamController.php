@@ -12,6 +12,7 @@ use App\Models\Level;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use PDF;
 
 class ExamController extends Controller
 {
@@ -373,7 +374,8 @@ class ExamController extends Controller
     {
         // get administration
         $data = Grade::findOrFail($id);
-
-        return view('pdf.grade', ['data' => $data]);
+        $pdf = PDF::loadview('pdf.grade', ['data' => $data])->setPaper('a4', 'landscape');
+        return $pdf->stream('Assessment-result');
+        //return view('pdf.grade', ['data' => $data]);
     }
 }

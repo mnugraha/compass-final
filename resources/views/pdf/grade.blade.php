@@ -34,14 +34,14 @@
         }
 
         .logo {
-            margin-top: 20px;
+            margin-top: 40px;
             color: rgb(182, 15, 0);
             text-align: center;
         }
 
         .marquee {
             color: #14366e;
-            font-size: 28px;
+            font-size: 24px;
             margin-top: 20px;
             text-align: center;
         }
@@ -67,7 +67,7 @@
 <body>
     <div class="container">
         <div class="logo">
-            <img src="/logo-header.png">
+            <img src="{{ public_path('/logo-header.png') }}" style="width: 250px">
         </div>
 
         <div class="marquee">
@@ -134,8 +134,8 @@
             <td style="width: 70%"></td>
             <td style="text-align: right">
                 <p style="">Purwakarta, <?php echo substr($data->end_time, 0, 10); ?></p>
-                <img src="/qr.png" height="80px">
-                <div style="font-weight: 700">HR Manager</div>
+                <img src="{{ public_path('/qr.png') }}" height="80px">
+                <div style="font-weight: 700">HR Manager Indorama</div>
             </td>
         </table>
 
