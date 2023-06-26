@@ -73,6 +73,7 @@ class ExamController extends Controller
             'random_question' => 'required',
             'random_answer' => 'required',
             'show_answer' => 'required',
+            'status' => 'required|integer',
         ]);
 
         try {
@@ -86,6 +87,7 @@ class ExamController extends Controller
                 'random_question' => $request->random_question,
                 'random_answer' => $request->random_answer,
                 'show_answer' => $request->show_answer,
+                'status' => $request->status,
             ]);
 
             //redirect
@@ -167,6 +169,7 @@ class ExamController extends Controller
             'random_question' => 'required',
             'random_answer' => 'required',
             'show_answer' => 'required',
+            'status' => 'required|integer',
         ]);
 
         try {
@@ -180,6 +183,7 @@ class ExamController extends Controller
                 'random_question' => $request->random_question,
                 'random_answer' => $request->random_answer,
                 'show_answer' => $request->show_answer,
+                'status' => $request->status,
             ]);
 
             //redirect

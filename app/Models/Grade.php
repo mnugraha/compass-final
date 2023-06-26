@@ -27,6 +27,7 @@ class Grade extends Model
         'total_correct',
         'total_incorrect',
         'grade',
+        'status',
     ];
 
     /**

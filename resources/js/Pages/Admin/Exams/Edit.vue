@@ -1,6 +1,6 @@
 <template>
     <Head>
-        <title>Edit Ujian </title>
+        <title>Edit Ujian</title>
     </Head>
     <div class="container-fluid mb-5 mt-5">
         <div class="row">
@@ -17,24 +17,52 @@
                         <h5><i class="fa fa-edit"></i> Edit Ujian</h5>
                         <hr />
                         <form @submit.prevent="submit">
-                            <div class="mb-4">
-                                <label>Nama Ujian</label>
-                                <input
-                                    type="text"
-                                    class="form-control"
-                                    placeholder="Masukkan Nama Ujian"
-                                    v-model="form.title"
-                                    :class="errors.title ? 'is-invalid' : ''"
-                                />
-                                <div
-                                    v-if="errors.title"
-                                    class="invalid-feedback mt-2"
-                                >
-                                    {{ errors.title }}
-                                </div>
-                            </div>
-
                             <div class="row">
+                                <div class="col-md-7">
+                                    <div class="mb-4">
+                                        <label>Nama Ujian</label>
+                                        <input
+                                            type="text"
+                                            class="form-control"
+                                            placeholder="Masukkan Nama Ujian"
+                                            v-model="form.title"
+                                            :class="
+                                                errors.title ? 'is-invalid' : ''
+                                            "
+                                        />
+                                        <div
+                                            v-if="errors.title"
+                                            class="invalid-feedback mt-2"
+                                        >
+                                            {{ errors.title }}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-5">
+                                    <div class="mb-4">
+                                        <label>Status Kelulusan</label>
+                                        <input
+                                            type="number"
+                                            min="1"
+                                            class="form-control"
+                                            placeholder="Masukkan Status Kelulusan"
+                                            v-model="form.status"
+                                            :class="
+                                                errors.status
+                                                    ? 'is-invalid'
+                                                    : ''
+                                            "
+                                        />
+                                        <div
+                                            v-if="errors.status"
+                                            class="invalid-feedback mt-2"
+                                        >
+                                            {{ errors.status }}
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <div class="col-md-4">
                                     <div class="mb-4">
                                         <label>Function</label>
@@ -114,9 +142,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <div class="row">
                                 <div class="col-md-4">
                                     <div class="mb-4">
                                         <label class="d-block">Acak Soal</label>
@@ -359,7 +385,8 @@ export default {
             description: props.exam.description,
             random_question: props.exam.random_question,
             random_answer: props.exam.random_answer,
-            show_answer: props.exam.show_answer
+            show_answer: props.exam.show_answer,
+            status: props.exam.status
         })
 
         //method "submit"
@@ -376,7 +403,8 @@ export default {
                     description: form.description,
                     random_question: form.random_question,
                     random_answer: form.random_answer,
-                    show_answer: form.show_answer
+                    show_answer: form.show_answer,
+                    status: props.exam.status
                 },
                 {
                     onSuccess: () => {
