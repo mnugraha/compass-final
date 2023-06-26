@@ -118,6 +118,7 @@
                                         <th class="border-0">Jumlah Benar</th>
                                         <th class="border-0">Jumlah Salah</th>
                                         <th class="border-0">Nilai</th>
+                                        <th class="border-0">Action</th>
                                     </tr>
                                 </thead>
                                 <div class="mt-2"></div>
@@ -150,6 +151,16 @@
                                         <td class="fw-bold text-center">
                                             {{ grade?.grade }}
                                         </td>
+                                        <td class="fw-bold text-center">
+                                            <Link
+                                                :href="`/admin/grade/show/${grade?.id}`"
+                                                class="btn btn-sm btn-primary border-0 shadow me-2"
+                                                type="button"
+                                            >
+                                                <i class="fa fa-plus-circle">
+                                                </i>
+                                            </Link>
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -172,7 +183,7 @@
 import LayoutAdmin from '../../../Layouts/Admin.vue'
 
 //import Head from Inertia
-import { Head } from '@inertiajs/inertia-vue3'
+import { Head, Link } from '@inertiajs/inertia-vue3'
 
 //import component pagination
 import Pagination from '../../../Components/Pagination.vue'
@@ -193,7 +204,8 @@ export default {
     //register components
     components: {
         Head,
-        Pagination
+        Pagination,
+        Link
     },
 
     //props

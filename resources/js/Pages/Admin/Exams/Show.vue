@@ -58,6 +58,12 @@
                                         <td class="fw-bold">Durasi (Menit)</td>
                                         <td>{{ exam?.duration }} Menit</td>
                                     </tr>
+                                    <tr>
+                                        <td class="fw-bold">
+                                            Status Kelulusan
+                                        </td>
+                                        <td>{{ exam?.status }}</td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>

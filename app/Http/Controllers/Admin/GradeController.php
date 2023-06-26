@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Exports\GradesExport;
 use App\Http\Controllers\Controller;
+use App\Models\Answer;
 use App\Models\Exam;
 use App\Models\Grade;
 use Carbon\Carbon;
@@ -101,5 +102,28 @@ class GradeController extends Controller
             ->get();
 
         return Excel::download(new GradesExport($grades), 'grade : ' . $exam->title . ' — ' . Carbon::now() . '.xlsx');
+    }
+
+    /**
+     * show
+     *
+     * @return void
+     */
+    public function show($id)
+    {
+        //geta ll exams
+        $grade = Grade::with('user', 'exam.peran', 'exam.level', 'exam_session', 'exam.questions')
+            ->findOrFail($id);
+
+        $all_questions = Answer::with('question')
+            ->where('exam_id', $grade->exam->id)
+            ->where('exam_session_id', $grade->exam_session_id)
+            ->orderBy('question_order', 'ASC')
+            ->paginate(5);
+
+        return inertia('Admin/Grades/show', [
+            'grade' => $grade,
+            'all_questions' => $all_questions,
+        ]);
     }
 }

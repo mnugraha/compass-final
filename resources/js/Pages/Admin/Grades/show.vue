@@ -10,7 +10,7 @@
             class="col-12 d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center"
         >
             <Link
-                href="/exam"
+                href="/admin/grade"
                 class="btn btn-md btn-primary border-0 shadow mb-3"
                 type="button"
                 ><i class="fa fa-long-arrow-alt-left me-2"></i>
@@ -88,6 +88,7 @@
                                                     'text-info fw-bold':
                                                         question?.answer == '1'
                                                 }"
+                                                class="white-space"
                                             ></li>
                                             <li
                                                 v-html="
@@ -97,6 +98,7 @@
                                                     'text-info fw-bold':
                                                         question?.answer == '2'
                                                 }"
+                                                class="white-space"
                                             ></li>
                                             <li
                                                 v-html="
@@ -106,6 +108,7 @@
                                                     'text-info fw-bold':
                                                         question?.answer == '3'
                                                 }"
+                                                class="white-space"
                                             ></li>
                                             <li
                                                 v-html="
@@ -115,6 +118,7 @@
                                                     'text-info fw-bold':
                                                         question?.answer == '4'
                                                 }"
+                                                class="white-space"
                                             ></li>
                                             <li
                                                 v-html="
@@ -124,6 +128,7 @@
                                                     'text-info fw-bold':
                                                         question?.answer == '5'
                                                 }"
+                                                class="white-space"
                                             ></li>
                                         </ol>
                                         <!-- alert -->
@@ -179,7 +184,7 @@
                                         Nama Lengkap
                                     </td>
                                     <td class="white-space">
-                                        {{ exam_group?.user?.name }}
+                                        {{ grade?.user?.name }}
                                     </td>
                                 </tr>
                                 <tr>
@@ -187,8 +192,8 @@
                                         Ujian
                                     </td>
                                     <td class="white-space">
-                                        {{ exam_group?.exam?.title }} -
-                                        {{ exam_group?.exam_session?.title }}
+                                        {{ grade?.exam?.title }} -
+                                        {{ grade?.exam_session?.title }}
                                     </td>
                                 </tr>
                                 <tr>
@@ -208,31 +213,28 @@
                                         Jumlah Soal
                                     </td>
                                     <td>
-                                        {{
-                                            exam_group?.exam?.questions?.length
-                                        }}
+                                        {{ grade?.exam?.questions?.length }}
                                     </td>
                                 </tr>
-
-                                <tr v-if="exam_group?.exam?.show_answer == 'Y'">
+                                <tr v-if="grade?.exam?.show_answer == 'Y'">
                                     <td style="width: 25%" class="fw-bold">
                                         Jumlah Benar
                                     </td>
                                     <td>{{ grade?.total_correct }}</td>
                                 </tr>
-                                <tr v-if="exam_group?.exam?.show_answer == 'Y'">
+                                <tr v-if="grade?.exam?.show_answer == 'Y'">
                                     <td style="width: 25%" class="fw-bold">
                                         Jumlah Salah
                                     </td>
                                     <td>{{ grade?.total_incorrect }}</td>
                                 </tr>
-                                <tr v-if="exam_group?.exam?.show_answer == 'Y'">
+                                <tr v-if="grade?.exam?.show_answer == 'Y'">
                                     <td style="width: 25%" class="fw-bold">
                                         Nilai
                                     </td>
                                     <td>{{ grade?.grade }}</td>
                                 </tr>
-                                <tr v-if="exam_group?.exam?.show_answer == 'Y'">
+                                <tr v-if="grade?.exam?.show_answer == 'Y'">
                                     <td style="width: 25%" class="fw-bold">
                                         Status
                                     </td>
@@ -262,7 +264,7 @@
 
 <script>
 //import layout student
-import LayoutStudent from '../../../Layouts/User.vue'
+import LayoutStudent from '../../../Layouts/Admin.vue'
 
 // import pagination
 import Pagination from '../../../Components/Pagination.vue'

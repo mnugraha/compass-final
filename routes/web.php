@@ -3,8 +3,8 @@
 use App\Http\Controllers\BackendController;
 use App\Http\Controllers\BackendController_en;
 use App\Http\Controllers\EnglishController;
-use App\Http\Controllers\UtamaController;
 use App\Http\Controllers\User\ExamController;
+use App\Http\Controllers\UtamaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -174,6 +174,8 @@ Route::prefix('admin')->group(function () {
         Route::get('/grade/filter', [\App\Http\Controllers\Admin\GradeController::class, 'filter'])->name('admin.grade.filter');
 
         Route::get('/grade/export', [\App\Http\Controllers\Admin\GradeController::class, 'export'])->name('admin.grade.export');
+
+        Route::get('/grade/show/{id}', [\App\Http\Controllers\Admin\GradeController::class, 'show'])->name('admin.grade.show');
     });
 });
 

@@ -214,6 +214,15 @@
                 </div>
                 <div class="text-end">
                     <button
+                        v-if="page >= Object.keys(all_questions).length"
+                        @click="showModalEndExam = true"
+                        class="btn btn-danger btn-sm border-0 shadow w-100"
+                    >
+                        Kirim Jawaban
+                    </button>
+
+                    <!-- jika kurang dari jumlah soal -->
+                    <button
                         v-if="page < Object.keys(all_questions).length"
                         @click.prevent="nextPage"
                         type="button"
@@ -285,7 +294,7 @@
             <div class="card p-4">
                 <button
                     @click="showModalEndExam = true"
-                    class="btn btn-info btn-md border-0 shadow w-100"
+                    class="btn btn-danger btn-md border-0 shadow w-100"
                 >
                     Kirim Jawaban
                 </button>
