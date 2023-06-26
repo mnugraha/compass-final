@@ -4,16 +4,15 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\Answer;
+use App\Models\Exam;
 use App\Models\ExamGroup;
 use App\Models\Grade;
 use App\Models\Question;
-use Carbon\Carbon;
-use App\Models\Level;
 use App\Models\User;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Barryvdh\DomPDF\Facade\Pdf;
-
 
 class ExamController extends Controller
 {
@@ -320,6 +319,16 @@ class ExamController extends Controller
             ->first();
 
         $grade->end_time = Carbon::now();
+
+        $exam = Exam::findOrFail($request->exam_id);
+
+        // jika lulus / tidak lulus
+        if ($grade_exam < $exam->status) {
+            $grade->status = 'Not Pass';
+        } else {
+            $grade->status = 'Pass';
+        }
+
         $grade->total_correct = $count_correct_answer;
         $grade->total_incorrect = $count_incorrect_answer;
         $grade->grade = $grade_exam;

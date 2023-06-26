@@ -61,6 +61,7 @@
         .reason {
             margin: 20px;
         }
+
     </style>
 </head>
 
@@ -106,11 +107,11 @@
                     <td style="text-transform: uppercase;border-bottom-style: dotted;border-width: 1px">
                         {{ $data->exam->level_id }}
                         @if ($data->exam->level_id == 1)
-                            - Senior
+                        - Senior
                         @elseif($data->exam->level_id == 2)
-                            - Middle
+                        - Middle
                         @elseif($data->exam->level_id == 3)
-                            - Junior
+                        - Junior
                         @endif
                     </td>
                 </tr>
@@ -127,7 +128,7 @@
                 <td style="padding: 20px;border: 1px solid #000;">{{ $data->total_correct }}</td>
                 <td style="padding: 20px;border: 1px solid #000;">{{ $data->total_incorrect }}</td>
                 <td style="font-weight: 700;border: 1px solid #000;">{{ $data->grade }}</td>
-                <td style="padding: 20px;border: 1px solid #000;">Pass</td>
+                <td style="padding: 20px;border: 1px solid #000;">{{ $data->status }}</td>
             </tr>
         </table>
         <table style="font-size:14px;font-family: Verdana, Geneva, Tahoma, sans-serif; width:90%">

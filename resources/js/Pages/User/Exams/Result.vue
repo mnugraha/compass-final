@@ -232,6 +232,12 @@
                                     </td>
                                     <td>{{ grade?.grade }}</td>
                                 </tr>
+                                <tr v-if="exam_group?.exam?.show_answer == 'Y'">
+                                    <td style="width: 25%" class="fw-bold">
+                                        Status
+                                    </td>
+                                    <td>{{ grade?.status }}</td>
+                                </tr>
                                 <tr>
                                     <td>Download</td>
                                     <td>
