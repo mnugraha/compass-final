@@ -42,7 +42,7 @@ class BackendController extends Controller
             'id_user' => $a->id_user,
             'name' => $a->nama,
             'password' => Hash::make($a->password),
-            'departemen' => $a->departemen,
+            'role' => $a->role,
             'hp' => $a->hp,
             'function' => $a->function,
             'function_en' => $a->function,
